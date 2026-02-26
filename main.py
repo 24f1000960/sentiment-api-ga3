@@ -10,6 +10,12 @@ load_dotenv()
 
 # Create FastAPI app
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Point OpenAI client to AIPipe instead of OpenAI directly
 client = OpenAI(
